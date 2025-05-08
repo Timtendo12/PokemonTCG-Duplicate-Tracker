@@ -9,16 +9,7 @@ from pokemontcgsdk import Card, RestClient, PokemonTcgException
 
 
 class PokemonCardTracker:
-    def __init__(self, root):
-        load_dotenv() 
-
-        api_key = os.getenv("POKEMONTCG_API_KEY")
-        if not api_key:
-            messagebox.showerror("Error", "API key not found. Please set POKEMON_API_KEY")
-            exit(0)
-
-        RestClient.configure(api_key)
-        
+    def __init__(self, root):        
         self.root = root
         self.root.title("Pokémon Duplicate Tracker")
 
@@ -157,6 +148,15 @@ class PokemonCardTracker:
 
 
 if __name__ == "__main__":
+    load_dotenv()
+
+    api_key = os.getenv("POKEMONTCG_API_KEY")
+    if not api_key:
+        messagebox.showerror("Error", "API key not found. Please set POKEMONTCG_API_KEY in the .env file")
+        exit(0)
+
+    RestClient.configure(api_key)
+    
     root = tk.Tk()
     app = PokemonCardTracker(root)
     root.mainloop()
