@@ -28,6 +28,7 @@ class PokemonCardTracker:
         ttk.Label(root, text="Card Number:").grid(row=1, column=0, padx=5, pady=5)
         self.card_entry = ttk.Entry(root)
         self.card_entry.grid(row=1, column=1, padx=5, pady=5)
+        self.card_entry.bind("<Return>", lambda event: self.add_card())
 
         # Radio buttons for variant
         self.variant = tk.StringVar(value="Standard")
