@@ -7,11 +7,10 @@ from dotenv import load_dotenv
 
 from pokemontcgsdk import Card,Set,RestClient, PokemonTcgException
 
-
 class PokemonCardTracker:
     def __init__(self, root: tk.Tk):        
         self.root = root
-        self.root.title("Pokémon Duplicate Tracker")
+        self.root.title("PokémonTCGDeck")
         self.card_data: dict[str, int] = {}
 
         self.currentSet = "sv9"
